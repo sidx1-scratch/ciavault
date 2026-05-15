@@ -1,0 +1,32 @@
+{
+  "name": "@sidx1/ciavault",
+  "version": "2.0.0",
+  "description": "🔐 Hide any file inside an image or any other file using steganography + AES-256 encryption, with a live-rolling three-layer encryption vault",
+  "main": "src/index.js",
+  "bin": {
+    "ciavault": "./bin/ciavault.js"
+  },
+  "keywords": [
+    "steganography",
+    "file-hiding",
+    "lsb",
+    "encryption",
+    "security",
+    "image",
+    "stego",
+    "aes-256",
+    "chacha20",
+    "rolling-vault"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1",
+    "pngjs": "^7.0.0"
+  }
+}
