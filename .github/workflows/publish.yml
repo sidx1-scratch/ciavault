@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
 
 jobs:
@@ -20,8 +20,6 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - run: npm install
-
-      - run: npm version patch --no-git-tag-version
+      - run: npm ci
 
       - run: npm publish --provenance --access public
