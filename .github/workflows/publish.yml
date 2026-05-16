@@ -33,16 +33,20 @@ jobs:
           VERSION=$(npm view "${{ steps.pkg.outputs.name }}" version 2>/dev/null || echo "0.0.0")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - if: steps.pkg.outputs.version == steps.published.outputs.version
+      # bump ONLY if versions match
+      - name: Auto bump version if needed
+        if: steps.pkg.outputs.version == steps.published.outputs.version
         run: npm version patch --no-git-tag-version
 
-      - if: steps.pkg.outputs.version == steps.published.outputs.version
+      - name: Commit version bump
+        if: steps.pkg.outputs.version == steps.published.outputs.version
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add package.json package-lock.json || true
-          git commit -m "auto bump version"
+          git commit -m "chore: auto bump version" || exit 0
           git push
 
-      - run: npm publish --provenance --access public
+      - name: Publish to npm
+        run: npm publish --provenance --access public
