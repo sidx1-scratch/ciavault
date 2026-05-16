@@ -13,13 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - run: npm publish --provenance --access public
+      - name: Publish package
+        run: npm publish --provenance --access public
