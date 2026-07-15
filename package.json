@@ -1,6 +1,6 @@
 {
   "name": "@sidx1-scratch/ciavault",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "🔐 Hide any file inside an image or any other file using steganography + AES-256 encryption, with a live-rolling three-layer encryption vault",
   "main": "src/index.js",
   "bin": {
